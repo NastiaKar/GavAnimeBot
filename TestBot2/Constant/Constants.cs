@@ -8,6 +8,6 @@ namespace basedApi.Constant;
 
 public class Constants
 {
-    public static string baseAddress = "https://localhost:7285";
+    public static string baseAddress = "https://anime-restapi.herokuapp.com";
     //public static string apikey = "";
 }
