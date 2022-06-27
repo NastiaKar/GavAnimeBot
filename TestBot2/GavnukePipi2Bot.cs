@@ -60,10 +60,10 @@ public class GavnukePipi2Bot
 
     private async Task HandlerMessageAsync(ITelegramBotClient _botClient, Message message)
     {
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine(message.Chat.FirstName);
-        Console.WriteLine(message.Text);
-        Console.WriteLine(new string('-', 50));
+        // Console.ForegroundColor = ConsoleColor.Green;
+        // Console.WriteLine(message.Chat.FirstName);
+        // Console.WriteLine(message.Text);
+        // Console.WriteLine(new string('-', 50));
         //Console.WriteLine(_prevMsg);
         switch (message.Text)
         {
