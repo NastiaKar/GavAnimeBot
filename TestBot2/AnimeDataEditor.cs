@@ -11,13 +11,25 @@ public static class AnimeDataEditor
 {
     public static async Task SendAnime(AnimeModel anime, Message message, ITelegramBotClient _botClient)
     {
+        AnimeClient ac = new AnimeClient();
+        var genresModel = await ac.GetGenreByAnimeId(anime.Data.Id);
+        var genresList = GetAnimeArray(genresModel).Result;
+
+        string genres = "";
+        foreach (var genre in genresList)
+        {
+            genres += $"- {genre.Attributes.Name}";
+        }
+        
+
         await _botClient.SendPhotoAsync(chatId: message.Chat.Id,
             photo: $"{anime.Data.Attributes.PosterImage.Large}",
             caption: $"{char.ConvertFromUtf32(0x1F338)} <b>English Title: </b>" +
                      $"<em>{anime.Data.Attributes.Titles.En_Jp}</em>\n" +
                      $"{char.ConvertFromUtf32(0x1F338)} <b>Japanese Title: </b>" +
                      $"<em>{anime.Data.Attributes.Titles.Ja_Jp}</em>\n" +
-                     $"\n{anime.Data.Attributes.AgeRatingGuide}",
+                     $"\n{anime.Data.Attributes.AgeRatingGuide}" +
+                     $"\nGenres:\n{genres}",
             parseMode: ParseMode.Html);
         await _botClient.SendTextMessageAsync(chatId: message.Chat.Id,
             $"<b>Description:</b> {anime.Data.Attributes.Synopsis}",

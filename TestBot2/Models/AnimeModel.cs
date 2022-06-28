@@ -21,6 +21,8 @@ public class Data
 public class Attributes
 {
   public string CreatedAt { get; set; }
+
+  public string Name { get; set; }
   public string Synopsis { get; set; }
   public string AgeRating { get; set; }
   public string AgeRatingGuide { get; set; }
