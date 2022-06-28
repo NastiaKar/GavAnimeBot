@@ -2,4 +2,7 @@
 
 GavnukePipi2Bot gavnukePipi2Bot = new GavnukePipi2Bot();
 gavnukePipi2Bot.Start();
-Console.ReadKey();
+while (true) 
+{
+    Console.ReadKey();
+}
